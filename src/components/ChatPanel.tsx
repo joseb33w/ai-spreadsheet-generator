@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { Message, SpreadsheetData, ChatResponse } from '../types';
+import type { Message, SpreadsheetData, ChatResponse } from '../types';
 import { chatAPI } from '../services/api';
 
 interface ChatPanelProps {
@@ -12,7 +12,6 @@ interface ChatPanelProps {
 
 const ChatPanel: React.FC<ChatPanelProps> = ({
   messages,
-  onNewMessage,
   onSpreadsheetUpdate,
   onMessagesUpdate,
   onLoadingChange

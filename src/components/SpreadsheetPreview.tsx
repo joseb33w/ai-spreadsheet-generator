@@ -1,9 +1,9 @@
 import React, { useMemo, useRef } from 'react';
 import { AgGridReact } from 'ag-grid-react';
-import { ColDef, GridApi, GridReadyEvent } from 'ag-grid-community';
+import type { ColDef } from 'ag-grid-community';
 import 'ag-grid-community/styles/ag-grid.css';
 import 'ag-grid-community/styles/ag-theme-alpine.css';
-import { SpreadsheetData } from '../types';
+import type { SpreadsheetData } from '../types';
 
 interface SpreadsheetPreviewProps {
   data: SpreadsheetData | null;
@@ -32,7 +32,7 @@ const SpreadsheetPreview: React.FC<SpreadsheetPreviewProps> = ({ data, isLoading
   }, [data]);
 
   // Handle grid ready
-  const onGridReady = (params: GridReadyEvent) => {
+  const onGridReady = () => {
     // Grid is ready, can access gridApi if needed
   };
 

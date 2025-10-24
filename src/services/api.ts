@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { Message, ChatResponse } from '../types';
+import type { Message, ChatResponse } from '../types';
 
 const API_BASE_URL = '/api';
 
