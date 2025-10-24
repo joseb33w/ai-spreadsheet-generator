@@ -88,28 +88,27 @@ body {
 }
 
 .message {
-  max-width: 100%;
+  width: 100%;
   padding: 0.75rem 1rem;
   border-radius: 1rem;
   word-wrap: break-word;
+  box-sizing: border-box;
 }
 
 .message.user {
-  align-self: flex-end;
+  align-self: stretch;
   background-color: var(--brown-primary);
   color: white;
   border-bottom-right-radius: 0.25rem;
-  max-width: 70%;
-  margin-left: auto;
+  text-align: right;
 }
 
 .message.assistant {
-  align-self: flex-start;
+  align-self: stretch;
   background-color: var(--brown-light);
   color: var(--text-primary);
   border-bottom-left-radius: 0.25rem;
-  max-width: 85%;
-  margin-right: auto;
+  text-align: left;
 }
 
 .chat-input-container {
