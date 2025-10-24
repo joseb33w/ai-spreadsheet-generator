@@ -126,7 +126,6 @@ const SpreadsheetPreview: React.FC<SpreadsheetPreviewProps> = ({ data, isLoading
               editable: true
             }}
             animateRows={true}
-            rowSelection="multiple"
             pagination={true}
             paginationPageSize={20}
             paginationPageSizeSelector={[10, 20, 50, 100]}
