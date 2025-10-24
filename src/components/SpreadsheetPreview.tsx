@@ -131,6 +131,7 @@ const SpreadsheetPreview: React.FC<SpreadsheetPreviewProps> = ({ data, isLoading
             pagination={true}
             paginationPageSize={20}
             paginationPageSizeSelector={[10, 20, 50, 100]}
+            gridOptions={{ theme: 'legacy' }}
           />
         </div>
       </div>
