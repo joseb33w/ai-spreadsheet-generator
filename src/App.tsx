@@ -1,8 +1,10 @@
-import { useState } from 'react';
-import ChatPanel from './components/ChatPanel';
-import SpreadsheetPreview from './components/SpreadsheetPreview';
+import { useState, lazy, Suspense } from 'react';
 import type { Message, SpreadsheetData } from './types';
 import './styles/App.css';
+
+// Lazy load components to reduce initial bundle size
+const ChatPanel = lazy(() => import('./components/ChatPanel'));
+const SpreadsheetPreview = lazy(() => import('./components/SpreadsheetPreview'));
 
 function App() {
   const [messages, setMessages] = useState<Message[]>([]);
@@ -41,10 +43,12 @@ function App() {
           📊 Spreadsheet Preview
         </div>
         <div className="panel-content">
-          <SpreadsheetPreview 
-            data={spreadsheetData}
-            isLoading={isLoading}
-          />
+          <Suspense fallback={<div className="loading-indicator">Loading spreadsheet...</div>}>
+            <SpreadsheetPreview 
+              data={spreadsheetData}
+              isLoading={isLoading}
+            />
+          </Suspense>
         </div>
       </div>
       
@@ -53,13 +57,15 @@ function App() {
           💬 AI Assistant
         </div>
         <div className="panel-content">
-          <ChatPanel
-            messages={messages}
-            onNewMessage={handleNewMessage}
-            onSpreadsheetUpdate={handleSpreadsheetUpdate}
-            onMessagesUpdate={handleMessagesUpdate}
-            onLoadingChange={handleLoadingChange}
-          />
+          <Suspense fallback={<div className="loading-indicator">Loading chat...</div>}>
+            <ChatPanel
+              messages={messages}
+              onNewMessage={handleNewMessage}
+              onSpreadsheetUpdate={handleSpreadsheetUpdate}
+              onMessagesUpdate={handleMessagesUpdate}
+              onLoadingChange={handleLoadingChange}
+            />
+          </Suspense>
         </div>
       </div>
     </div>
