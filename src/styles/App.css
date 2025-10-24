@@ -72,6 +72,8 @@ body {
   display: flex;
   flex-direction: column;
   height: 100%;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .messages-container {
@@ -97,7 +99,8 @@ body {
   background-color: var(--brown-primary);
   color: white;
   border-bottom-right-radius: 0.25rem;
-  max-width: 80%;
+  max-width: 70%;
+  margin-left: auto;
 }
 
 .message.assistant {
@@ -105,7 +108,8 @@ body {
   background-color: var(--brown-light);
   color: var(--text-primary);
   border-bottom-left-radius: 0.25rem;
-  max-width: 90%;
+  max-width: 85%;
+  margin-right: auto;
 }
 
 .chat-input-container {
